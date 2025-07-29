@@ -1,18 +1,29 @@
+app = "n8n-hafez"
+primary_region = "ams"
+
 [build]
-  image = "n8nio/n8n:latest"
 
 [env]
+  N8N_BASIC_AUTH_ACTIVE = "true"
+  N8N_BASIC_AUTH_USER = "admin"
+  N8N_BASIC_AUTH_PASSWORD = "password123"
   N8N_HOST = "n8n-hafez.fly.dev"
-  WEBHOOK_URL = "https://n8n-hafez.fly.dev"
+  N8N_PORT = "5678"
+  WEBHOOK_URL = "https://n8n-hafez.fly.dev/"
 
 [[services]]
   internal_port = 5678
   protocol = "tcp"
 
-[[services.ports]]
-  port = 80
-  handlers = ["http"]
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
 
-[[services.ports]]
-  port = 443
-  handlers = ["tls", "http"]
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
