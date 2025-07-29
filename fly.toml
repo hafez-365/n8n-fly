@@ -3,7 +3,7 @@ app = "n8n-yourname"
   image = "n8nio/n8n:latest" 
 [env] 
   N8N_HOST = "n8n-yourname.fly.dev" 
-  WEBHOOK_URL = "https://n8n-yourname.fly.dev" 
+  WEBHOOK_URL = "https://n8n-hafez.fly.dev" 
 [[services]] 
   internal_port = 5678 
   protocol = "tcp" 
